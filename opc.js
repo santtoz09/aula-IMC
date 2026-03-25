@@ -18,6 +18,6 @@ export function definirClassificacao(imc, numero) {
         classificacao.textContent = 'obeso'
 
     } else {
-        classificacao.textContent = 'obesidade grave '
+        classificacao.textContent = 'obesidade grave'
     }
 }
