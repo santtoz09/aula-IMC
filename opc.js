@@ -8,6 +8,7 @@ export function definirClassificacao(imc, numero) {
     if (imc < 18.5) {
         classificacao.textContent = 'abaixo do peso'
 
+
     } else if (imc < 25) {
         classificacao.textContent = 'peso normal'
 

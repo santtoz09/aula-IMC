@@ -26,8 +26,8 @@ input.addEventListener('input', ()=>{
         let tds = tr.children
         
                 
-        if(!tds[5].textContent.includes(input.value)){
-            tr.visible = false     
+        if(!tds[5].textContent.includes(input.value.toUpperCase(true))){
+            tr.visible = false  
         }
         
         console.log(tr.visible)
