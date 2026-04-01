@@ -22,3 +22,4 @@ export function definirClassificacao(imc, numero) {
         classificacao.textContent = 'obesidade grave'
     }
 }
+

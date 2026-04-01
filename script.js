@@ -2,6 +2,10 @@ import { calcularIMC, definirClassificacao } from './opc.js'
 
 
 let trs = document.querySelectorAll('tbody tr')
+
+
+
+
 let input = document.querySelector('.entrada')
 
 for (let aluno = 1; aluno <= 20; aluno++) {
@@ -15,30 +19,40 @@ for (let aluno = 1; aluno <= 20; aluno++) {
 }
 
 
-// filtro na tabela
-input.addEventListener('input', ()=>{
 
-    //let texto = entrada.value
-    let esconder = true
+
+//mudar a cor da tabelaaa
+trs.forEach(tr => {
+    let status = tr.children[5].textContent.toLowerCase().trim()
+
+    if (status === 'abaixo do peso') {
+        tr.style.backgroundColor = '#F4EFEC'
+    } else if (status === 'peso normal') {
+        tr.style.backgroundColor = 'white'
+    } else if (status === 'sobrepeso') {
+        tr.style.backgroundColor = ' #cb9c9c'
+    } else if (status === 'obeso') {
+        tr.style.backgroundColor = '#6f3939'
+    } else if (status === 'obesidade grave') {
+        tr.style.backgroundColor = '#350a0a'
+    }
+})
+
+// filtro
+input.addEventListener('input', () => {
 
     trs.forEach(tr => {
-        tr.visible = true
         let tds = tr.children
-        
-                
-        if(!tds[5].textContent.includes(input.value.toUpperCase(true))){
-            tr.visible = false  
-        }
-        
-        console.log(tr.visible)
-        
-        if(tr.visible){
-            tr.style.display = 'table-row'
-        } else {
-            tr.style.display = 'none'
-        }
-        
-    })
-    console.log('----')
 
+        let textoTabela = tds[5].textContent.toLowerCase()
+        let textoInput = input.value.toLowerCase()
+
+        if (!textoTabela.includes(textoInput)) {
+            tr.style.display = 'none'
+        } else {
+            tr.style.display = 'table-row'
+        }
+    })
 })
+
+
